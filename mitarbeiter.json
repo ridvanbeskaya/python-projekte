@@ -1,0 +1,8 @@
+[
+    {"name": "Anna Weber", "abteilung": "Vertrieb", "gehalt": 3200, "jahre_betriebszugehoerigkeit": 4},
+    {"name": "Ben Fischer", "abteilung": "IT", "gehalt": 4100, "jahre_betriebszugehoerigkeit": 2},
+    {"name": "Carla König", "abteilung": "Verwaltung", "gehalt": 2900},
+    {"name": "David Roth", "abteilung": "IT", "gehalt": 3800, "jahre_betriebszugehoerigkeit": 7},
+    {"name": "Erik Sommer", "abteilung": "Vertrieb", "jahre_betriebszugehoerigkeit": 1},
+    {"name": "David Roth", "abteilung": "IT", "gehalt": 1000, "jahre_betriebszugehoerigkeit": 7}
+]
