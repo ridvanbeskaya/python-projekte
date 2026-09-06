@@ -36,6 +36,12 @@ class Lieferung:
         status = a.get("status")
         return Lieferung(lieferung_id,kunde,kurier_id,distanz_km,bestellwert,status)
 
+    def status_zustand(self, neuer_status):
+        if self.status in ["storniert", "geliefert"]:
+            raise ValueError("Der Status dieser Bestellung kann nicht mehr geändert werden")
+        return self.status = neuer_status
+            
+
 
 # for a in lieferung_daten:
 #     lieferung1 = Lieferung.lieferung_erzeugen(a)
@@ -65,6 +71,8 @@ class Kurier:
         fahrzeug = kurier.get("fahrzeug")
         km_pauschale = kurier.get("km_pauschale")
         return Kurier(kurier_id,name,fahrzeug,km_pauschale)
+    
+    def gesamt_umsatz_pro_kurier(self)
 
 
 
