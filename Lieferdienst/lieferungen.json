@@ -1,0 +1,12 @@
+[
+    {"lieferung_id": "L1001", "kunde": "Café Nordlicht", "kurier_id": "K1", "distanz_km": 2.5, "bestellwert": 34.50, "status": "geliefert"},
+    {"lieferung_id": "L1002", "kunde": "Familie Berger", "kurier_id": "K3", "distanz_km": 8.0, "bestellwert": 62.00, "status": "unterwegs"},
+    {"lieferung_id": "L1003", "kunde": "Büro Sonnenweg", "kurier_id": "K2", "distanz_km": 4.2, "bestellwert": 89.90, "status": "geliefert"},
+    {"lieferung_id": "L1004", "kunde": "Herr Tomczak", "kurier_id": "K1", "distanz_km": 1.8, "bestellwert": 21.00, "status": "storniert"},
+    {"lieferung_id": "L1005", "kunde": "Praxis Dr. Wenzel", "kurier_id": "K3", "distanz_km": 12.5, "bestellwert": 145.00, "status": "geliefert"},
+    {"lieferung_id": "L1006", "kunde": "WG Lindenstraße", "kurier_id": "K4", "distanz_km": 3.1, "bestellwert": 27.80, "status": "geliefert"},
+    {"lieferung_id": "L1007", "kunde": "Café Nordlicht", "kurier_id": "K2", "distanz_km": 2.5, "bestellwert": 41.20, "status": "unterwegs"},
+    {"lieferung_id": "L1008", "kunde": "Familie Berger", "kurier_id": "K5", "distanz_km": 6.0, "bestellwert": 55.00, "status": "geliefert"},
+    {"lieferung_id": "L1009", "kunde": "Büro Sonnenweg", "kurier_id": "K1", "distanz_km": 3.9, "bestellwert": 33.30, "status": "offen"},
+    {"lieferung_id": "L1010", "kunde": "Herr Tomczak", "kurier_id": "K4", "distanz_km": 2.2, "bestellwert": 19.50, "status": "geliefert"}
+]
