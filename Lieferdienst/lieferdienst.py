@@ -1,5 +1,6 @@
-import json
-import csv
+import json,csv
+from collections import Counter
+
 
 
 with open("lieferungen.json","r",encoding="utf-8")as datei_json:
@@ -28,24 +29,26 @@ class Lieferung:
 
     @classmethod
     def lieferung_erzeugen(cls,lieferung):
-        lieferung_id = a.get("lieferung_id")
-        kunde = a.get("kunde")
-        kurier_id = a.get("kurier_id")
-        distanz_km = a.get("distanz_km")
-        bestellwert = a.get("bestellwert")
-        status = a.get("status")
+        lieferung_id = lieferung.get("lieferung_id")
+        kunde = lieferung.get("kunde")
+        kurier_id = lieferung.get("kurier_id")
+        distanz_km = lieferung.get("distanz_km")
+        bestellwert = lieferung.get("bestellwert")
+        status = lieferung.get("status")
         return Lieferung(lieferung_id,kunde,kurier_id,distanz_km,bestellwert,status)
 
     def status_zustand(self, neuer_status):
         if self.status in ["storniert", "geliefert"]:
             raise ValueError("Der Status dieser Bestellung kann nicht mehr geändert werden")
-        return self.status = neuer_status
+        self.status = neuer_status
+        return self.status
+    
+    def meiste_bestellungen(self,lieferung_liste):
+        alle_kunden = [lieferung["kunde"] for lieferung in lieferung_liste if "kunde" in lieferung]
+        zaehler = Counter(alle_kunden)
+        haeufigstes_element, anzahl = zaehler.most_common(1)[0]
+        return  haeufigstes_element, anzahl
             
-
-
-# for a in lieferung_daten:
-#     lieferung1 = Lieferung.lieferung_erzeugen(a)
-#     print(lieferung1)
    
     
 #Klasse für Kurrier
@@ -72,13 +75,40 @@ class Kurier:
         km_pauschale = kurier.get("km_pauschale")
         return Kurier(kurier_id,name,fahrzeug,km_pauschale)
     
-    def gesamt_umsatz_pro_kurier(self)
+    def gesamt_umsatz_pro_kurier(self,kurier_id):
+        gesamt = 0
+        for k in self.lieferung:
+            if k.kurier_id == kurier_id and k.status == "geliefert":
+                gesamt += k.bestellwert
+                
+        return gesamt
+    def gesamtgewinn(self):
+        kilometer_kosten = 0
+        umsatz = 0
+        for l in self.lieferung:
+            if l.status =="geliefert":
+                kilometer_kosten += float(self.km_pauschale)*l.distanz_km
+                umsatz += l.bestellwert
+        return umsatz - kilometer_kosten
+
+        
+                
+                
 
 
+lieferung_1 = Lieferung.lieferung_erzeugen(lieferung_daten[0])
+print(lieferung_1)
 
-for a in kurier_daten:
-    kurier = Kurier.kurier_erzeugen(a)
-    print(kurier)
+kurier_1 = Kurier.kurier_erzeugen(kurier_daten[0])
+
+
+for l in lieferung_daten:
+    lieferung = Lieferung.lieferung_erzeugen(l)
+    kurier_1.lieferung_hinzufuegen(lieferung)
+
+print(kurier_1.gesamt_umsatz_pro_kurier("K4"))
+print (lieferung.meiste_bestellungen(lieferung_daten))
+print(kurier_1.gesamtgewinn())
     
 #Klasse für Kunde
 class Kunde:
