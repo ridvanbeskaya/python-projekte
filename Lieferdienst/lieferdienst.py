@@ -11,6 +11,14 @@ with open("kuriere.csv","r")as datei_csv:
     kurier_daten = list(csv.DictReader(datei_csv,delimiter=","))
     #print("Kurier: ",kurier_daten)
 
+#Übergänge
+erlaubte_uebergaenge = {
+    "offen": ["unterwegs", "storniert"],
+    "unterwegs": ["geliefert", "storniert"],
+    "geliefert": [],       # keine Änderung mehr möglich
+    "storniert": []        # keine Änderung mehr möglich
+}
+
 
 #Klasse für Lieferung
 class Lieferung:
@@ -91,31 +99,43 @@ class Kurier:
                 umsatz += l.bestellwert
         return umsatz - kilometer_kosten
 
+    def alle_lieferungen(self):
+        for a in self.lieferung:
+            print(a)
+
         
                 
-                
-
-
-lieferung_1 = Lieferung.lieferung_erzeugen(lieferung_daten[0])
-print(lieferung_1)
-
-kurier_1 = Kurier.kurier_erzeugen(kurier_daten[0])
-
+alle_kurier = [Kurier.kurier_erzeugen(k) for k in kurier_daten]
 
 for l in lieferung_daten:
-    lieferung = Lieferung.lieferung_erzeugen(l)
-    kurier_1.lieferung_hinzufuegen(lieferung)
+    lieferug = Lieferung.lieferung_erzeugen(l)
+    gefunden = False   # Markierung: noch kein Treffer
+    for k in alle_kurier:
+        if lieferug.kurier_id == k.kurier_id:
+            k.lieferung_hinzufuegen(lieferug)
+            gefunden = True   # Treffer gefunden!
+    if not gefunden:   # NACH der inneren Schleife prüfen: wurde überhaupt ein Treffer gefunden?
+        print(f"Warnung: Kurier {lieferug.kurier_id} für Lieferung {lieferug.lieferung_id} nicht gefunden!")
 
-print(kurier_1.gesamt_umsatz_pro_kurier("K4"))
-print (lieferung.meiste_bestellungen(lieferung_daten))
-print(kurier_1.gesamtgewinn())
-    
-#Klasse für Kunde
-class Kunde:
 
-    def __init__(self,name):
-        self.name = name
-        self.lieferung = []
-
-    def lieferung_hinzufuegen(self,lieferung):
-        self.lieferung.append(lieferung)
+# --- Ausgaben ---
+print()
+print("=== Lieferungen pro Kurier ===")
+for k in alle_kurier:
+    print(f"{k.kurier_id} ({k.name}): {len(k.lieferung)} Lieferungen")
+ 
+print()
+print("=== Gesamtumsatz pro Kurier (nur 'geliefert') ===")
+for k in alle_kurier:
+    print(f"{k.kurier_id}: {k.gesamt_umsatz_pro_kurier(k.kurier_id):.2f} Euro")
+ 
+print()
+print("=== Gesamtgewinn pro Kurier ===")
+for k in alle_kurier:
+    print(f"{k.kurier_id}: {k.gesamtgewinn():.2f} Euro")
+ 
+print()
+print("=== Häufigster Kunde ===")
+beispiel_lieferung = Lieferung.lieferung_erzeugen(lieferung_daten[0])
+kunde, anzahl = beispiel_lieferung.meiste_bestellungen(lieferung_daten)
+print(f"{kunde} mit {anzahl} Lieferungen")
