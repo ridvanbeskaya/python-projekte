@@ -6,15 +6,15 @@ class Mitarbeiter:
     def untergebenen_hinzufuegen(self, mitarbeiter):
         self.untergebene.append(mitarbeiter)
 
-    def team_groesse(self):
+    def team_groesse(self, besucht=None):
+        if besucht is None:
+            besucht = set()
+        if self in besucht:
+            raise ValueError(f"Zirkelbezug entdeckt bei {self.name}!")
+        besucht.add(self)
         anzahl = len(self.untergebene)
         for u in self.untergebene:
-            print("schleife_vor:",anzahl)
             anzahl += u.team_groesse()
-            besuchte_objekte = set(u)
-            if u in besuchte_objekte:
-                continue
-
         return anzahl
 
 
