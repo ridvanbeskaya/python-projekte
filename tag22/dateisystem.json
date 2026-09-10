@@ -1,0 +1,30 @@
+{
+    "name": "Projekte",
+    "typ": "ordner",
+    "inhalt": [
+        {"name": "bericht.docx", "typ": "datei", "groesse_kb": 450},
+        {"name": "praesentation.pptx", "typ": "datei", "groesse_kb": 2100},
+        {
+            "name": "Bilder",
+            "typ": "ordner",
+            "inhalt": [
+                {"name": "foto1.jpg", "typ": "datei", "groesse_kb": 3200},
+                {"name": "foto2.jpg", "typ": "datei", "groesse_kb": 2800},
+                {
+                    "name": "Archiv",
+                    "typ": "ordner",
+                    "inhalt": [
+                        {"name": "alt_foto.jpg", "typ": "datei", "groesse_kb": 1500}
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Daten",
+            "typ": "ordner",
+            "inhalt": [
+                {"name": "export.csv", "typ": "datei", "groesse_kb": 890}
+            ]
+        }
+    ]
+}

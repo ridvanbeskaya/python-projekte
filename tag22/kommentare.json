@@ -1,0 +1,34 @@
+{
+    "autor": "Max",
+    "text": "Tolles Produkt, funktioniert super!",
+    "antworten": [
+        {
+            "autor": "Support-Team",
+            "text": "Danke für dein Feedback!",
+            "antworten": [
+                {
+                    "autor": "Max",
+                    "text": "Gerne, weiter so!",
+                    "antworten": []
+                }
+            ]
+        },
+        {
+            "autor": "Lisa",
+            "text": "Kann ich bestätigen, top Qualität.",
+            "antworten": [
+                {
+                    "autor": "Tom",
+                    "text": "Stimmt, hatte auch keine Probleme.",
+                    "antworten": [
+                        {
+                            "autor": "Max",
+                            "text": "Freut mich zu hören!",
+                            "antworten": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

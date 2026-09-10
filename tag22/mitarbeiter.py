@@ -14,7 +14,7 @@ class Mitarbeiter:
         besucht.add(self)
         anzahl = len(self.untergebene)
         for u in self.untergebene:
-            anzahl += u.team_groesse()
+            anzahl += u.team_groesse(besucht)
         return anzahl
 
 

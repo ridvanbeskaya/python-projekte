@@ -1,0 +1,43 @@
+{
+    "bauteil": "Fahrrad komplett",
+    "einzelpreis": 0,
+    "bestandteile": [
+        {
+            "bauteil": "Rahmen",
+            "einzelpreis": 120.00,
+            "bestandteile": []
+        },
+        {
+            "bauteil": "Laufrad-Set",
+            "einzelpreis": 0,
+            "bestandteile": [
+                {
+                    "bauteil": "Vorderrad",
+                    "einzelpreis": 0,
+                    "bestandteile": [
+                        {"bauteil": "Felge", "einzelpreis": 35.00, "bestandteile": []},
+                        {"bauteil": "Reifen", "einzelpreis": 18.00, "bestandteile": []},
+                        {"bauteil": "Speichen-Set", "einzelpreis": 12.00, "bestandteile": []}
+                    ]
+                },
+                {
+                    "bauteil": "Hinterrad",
+                    "einzelpreis": 0,
+                    "bestandteile": [
+                        {"bauteil": "Felge", "einzelpreis": 35.00, "bestandteile": []},
+                        {"bauteil": "Reifen", "einzelpreis": 18.00, "bestandteile": []},
+                        {"bauteil": "Nabenschaltung", "einzelpreis": 65.00, "bestandteile": []}
+                    ]
+                }
+            ]
+        },
+        {
+            "bauteil": "Bremsen-Set",
+            "einzelpreis": 0,
+            "bestandteile": [
+                {"bauteil": "Vorderbremse", "einzelpreis": 22.00, "bestandteile": []},
+                {"bauteil": "Hinterbremse", "einzelpreis": 22.00, "bestandteile": []}
+            ]
+        }
+    ]
+}

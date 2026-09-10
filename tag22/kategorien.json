@@ -1,0 +1,25 @@
+{
+    "name": "Elektronik",
+    "eigene_produkte": 12,
+    "unterkategorien": [
+        {
+            "name": "Computer",
+            "eigene_produkte": 8,
+            "unterkategorien": [
+                {"name": "Laptops", "eigene_produkte": 25, "unterkategorien": []},
+                {"name": "Tastaturen", "eigene_produkte": 40, "unterkategorien": []}
+            ]
+        },
+        {
+            "name": "Audio",
+            "eigene_produkte": 5,
+            "unterkategorien": [
+                {"name": "Kopfhörer", "eigene_produkte": 30, "unterkategorien": [
+                    {"name": "In-Ear", "eigene_produkte": 15, "unterkategorien": []},
+                    {"name": "Over-Ear", "eigene_produkte": 18, "unterkategorien": []}
+                ]},
+                {"name": "Lautsprecher", "eigene_produkte": 22, "unterkategorien": []}
+            ]
+        }
+    ]
+}
