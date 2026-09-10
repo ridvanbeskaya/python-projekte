@@ -8,9 +8,12 @@ def gesamtpreis(liste,bauteil):
     preis = 0
     if liste.get("einzelpreis") != 0 and liste.get("bauteil") == bauteil:
         preis = liste.get("einzelpreis")
-    
+    elif liste.get("bauteil") == bauteil and liste.get("bestandteile"):
+        for a in liste.get("bestandteile"):
+            preis += a.get("einzelpreis")
+            
     for b in liste.get("bestandteile"):
         preis +=gesamtpreis(b,bauteil)
     return preis
 
-print(gesamtpreis(stück_liste,"Hinterrad"))
+print(gesamtpreis(stück_liste,"Felge"))
